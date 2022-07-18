@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Asthma hospitalizations associated costs, lengths of stay and mortality</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron mt-3">
+      <h1>Asthma hospitalizations associated costs</h1>
+      <p class="lead">
+        Asthma hospitalizations associated costs, lengths of stay and mortality
+      </p>
+
+      <hr />
+
+      <form class="col-md-8 offset-md-2 mt-4">
+
+        <div class="form-group">
+          <label for="days">Weekdays of activity impacted by the cyberattack in the affected service(s)</label>
+          <div class="input-group mb-2">
+            <select id="days" class="form-control" required>
+              <option>5</option>
+              <option>7</option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">days</div>
+            </div>
+          </div>
+          <small class="form-text text-muted">
+            Please enter the weekdays harmed by the cyberattack. (5 only considers working week days).
+          </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </form>
+
+      <div class="col-md-8 offset-md-2 mt-4">
+        <div class="alert alert-success overflow-hidden d-none" role="alert">
+          <h4 class="alert-heading">Estimated direct cost of the cyberattack</h4>
+          <p><strong cost-estimated></strong></p>
+          <h4 class="alert-heading">Cost per person</h4>
+          <p><span cost-per-person></span></p>
+          <h4 class="alert-heading">Affected percentage</h4>
+          <p>
+            <span affected-days></span> of weekdays in a year
+            <br />
+            <span affected-capacity></span> of installed capacity for the year
+          </p>
+          <hr />
+          <p>
+            Disclaimer: please take into consideration that all limitations described in the paper apply while
+            interpreting these results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

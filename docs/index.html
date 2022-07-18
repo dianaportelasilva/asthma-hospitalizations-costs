@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Economic impact simulator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/src.e31bb0bc.css"></head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron mt-3">
+      <h1>Economic impact simulator</h1>
+      <p class="lead">
+        This is a quick exercise to estimate the direct costs of a hospital cyberattack.
+      </p>
+
+      <hr>
+
+      <form class="col-md-8 offset-md-2 mt-4">
+        <div class="form-group">
+          <label for="cost">Value of established financing (€)</label>
+          <div class="input-group mb-2">
+            <input required="" type="number" class="form-control" id="cost" placeholder="10.000.000" min="0">
+            <div class="input-group-append">
+              <div class="input-group-text">€</div>
+            </div>
+          </div>
+          <small class="form-text text-muted">
+            Please enter the cost value of the impacted activity(ies).
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="days">Weekdays of activity impacted by the cyberattack in the affected service(s)</label>
+          <div class="input-group mb-2">
+            <select id="days" class="form-control" required="">
+              <option>5</option>
+              <option>7</option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">days</div>
+            </div>
+          </div>
+          <small class="form-text text-muted">
+            Please enter the weekdays harmed by the cyberattack. (5 only considers working week days).
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="proporcion">Impacted installed capacity</label>
+          <div class="input-group mb-2">
+            <input required="" type="number" class="form-control" id="proporcion" placeholder="50" max="100" min="0">
+            <div class="input-group-append">
+              <div class="input-group-text">%</div>
+            </div>
+          </div>
+          <small class="form-text text-muted">
+            Please enter the percentage of the activity harmed by the cyberattack.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="population">Population served by the hospital</label>
+          <div class="input-group mb-2">
+            <input required="" type="number" class="form-control" id="population" placeholder="3500" min="1">
+            <div class="input-group-append">
+              <div class="input-group-text">people</div>
+            </div>
+          </div>
+          <small class="form-text text-muted">
+            Please enter the amount of people served by the hospital (e.g., population of influence area).
+          </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </form>
+
+      <div class="col-md-8 offset-md-2 mt-4">
+        <div class="alert alert-success overflow-hidden d-none" role="alert">
+          <h4 class="alert-heading">Estimated direct cost of the cyberattack</h4>
+          <p><strong cost-estimated=""></strong></p>
+          <h4 class="alert-heading">Cost per person</h4>
+          <p><span cost-per-person=""></span></p>
+          <h4 class="alert-heading">Affected percentage</h4>
+          <p>
+            <span affected-days=""></span> of weekdays in a year
+            <br>
+            <span affected-capacity=""></span> of installed capacity for the year
+          </p>
+          <hr>
+          <p>
+            Disclaimer: please take into consideration that all limitations described in the paper apply while
+            interpreting these results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/src.e31bb0bc.js"></script>
+</body>
+
+</html>
