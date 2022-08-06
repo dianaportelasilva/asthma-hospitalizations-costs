@@ -1,0 +1,60 @@
+.container {
+    max-width: min(1400px, 82vw);
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 98vw;
+        max-width: initial;
+    }
+}
+
+option:disabled {
+    color: #BBB;
+    // display: none;
+}
+
+.form-group > div .reset,
+table td.delete {
+    font-weight: bold;
+    margin: 0.4rem 1rem;
+    cursor: pointer;
+    opacity: 0.4;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.form-group > div .reset {
+    visibility: hidden;
+    opacity: 0.2;
+}
+
+table {
+    font-size: 85%;
+
+    th {
+        white-space: nowrap;
+    }
+}
+
+.loading {
+    margin: 5rem 0;
+    text-align: center;
+
+    .loader {
+        border: 5px solid #f3f3f3;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #555;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin: 1rem auto;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+}

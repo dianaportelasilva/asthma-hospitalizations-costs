@@ -9,52 +9,226 @@
 
 <body>
   <div class="container">
-    <div class="jumbotron mt-3">
+    <div class="jumbotron mt-5">
       <h1>Asthma hospitalizations associated costs</h1>
       <p class="lead">
         Asthma hospitalizations associated costs, lengths of stay and mortality
       </p>
 
+      <ul class="nav nav-pills mt-4 mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-regression-models-tab" data-toggle="pill" href="#pills-regression-models"
+            role="tab" aria-controls="pills-regression-models" aria-selected="true">Regression Models</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-association-rules-tab" data-toggle="pill" href="#pills-association-rules"
+            role="tab" aria-controls="pills-association-rules" aria-selected="false">Association Rules</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-decision-trees-tab" data-toggle="pill" href="#pills-decision-trees" role="tab"
+            aria-controls="pills-decision-trees" aria-selected="false">Decision Trees</a>
+        </li>
+      </ul>
+
       <hr />
 
-      <form class="col-md-8 offset-md-2 mt-4">
-
-        <div class="form-group">
-          <label for="days">Weekdays of activity impacted by the cyberattack in the affected service(s)</label>
-          <div class="input-group mb-2">
-            <select id="days" class="form-control" required>
-              <option>5</option>
-              <option>7</option>
-            </select>
-            <div class="input-group-append">
-              <div class="input-group-text">days</div>
-            </div>
-          </div>
-          <small class="form-text text-muted">
-            Please enter the weekdays harmed by the cyberattack. (5 only considers working week days).
-          </small>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="loading">
+          <div class="loader"></div>
+          <p>Loading models ...</p>
         </div>
 
-        <button type="submit" class="btn btn-primary">Calculate</button>
-      </form>
+        <!-- Regression Models -->
+        <div class="tab-pane fade d-none show active" id="pills-regression-models" role="tabpanel">
+          <form class="col-md-8 offset-md-2 mt-4  ">
 
-      <div class="col-md-8 offset-md-2 mt-4">
-        <div class="alert alert-success overflow-hidden d-none" role="alert">
-          <h4 class="alert-heading">Estimated direct cost of the cyberattack</h4>
-          <p><strong cost-estimated></strong></p>
-          <h4 class="alert-heading">Cost per person</h4>
-          <p><span cost-per-person></span></p>
-          <h4 class="alert-heading">Affected percentage</h4>
-          <p>
-            <span affected-days></span> of weekdays in a year
-            <br />
-            <span affected-capacity></span> of installed capacity for the year
-          </p>
-          <hr />
-          <p>
-            Disclaimer: please take into consideration that all limitations described in the paper apply while
-            interpreting these results.
-          </p>
+            <!-- asthmaDiagnosis -->
+            <div class="form-group">
+              <label for="regression-asthmaDiagnosis">asthmaDiagnosis</label>
+              <div class="d-flex mb-2">
+                <select id="regression-asthmaDiagnosis" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the asthmaDiagnosis
+              </small>
+            </div>
+
+            <!-- ageClass -->
+            <div class="form-group">
+              <label for="regression-ageClass">ageClass</label>
+              <div class="input-group mb-2">
+                <select id="regression-ageClass" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="input-group-append">
+                  <div class="input-group-text">years</div>
+                </div>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the ageClass
+              </small>
+            </div>
+
+            <!-- outcome -->
+            <div class="form-group">
+              <label for="regression-outcome">outcome</label>
+              <div class="d-flex mb-2">
+                <select id="regression-outcome" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the outcome
+              </small>
+            </div>
+
+            <!-- comorbidities -->
+            <div class="form-group">
+              <label for="regression-comorbidities">comorbidities</label>
+              <div class="d-flex mb-2">
+                <select id="regression-comorbidities" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the comorbidities
+              </small>
+            </div>
+
+            <button type="submit" class="btn btn-primary" disabled>Add</button>
+            <input type="reset" class="btn btn-warning" value="Reset" disabled />
+          </form>
+          <div class="col-md-12 mt-4">
+            <div class="alert alert-success d-none" role="alert">
+              <table class="table table-striped table-responsive-xl">
+                <thead>
+                  <tr>
+                    <th>asthmaDiagnosis</th>
+                    <th>ageClass</th>
+                    <th>outcome</th>
+                    <th>comorbidities</th>
+                    <th>beta</th>
+                    <th>2.5%</th>
+                    <th>97.5%</th>
+                    <th>p-value</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <hr />
+              <p>
+                Disclaimer: please take into consideration that all limitations described in the paper apply while
+                interpreting these results.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Association Rules -->
+        <div class="tab-pane fade d-none" id="pills-association-rules" role="tabpanel">
+          <form class="col-md-8 offset-md-2 mt-4">
+
+            <!-- asthmaDiagnosis -->
+            <div class="form-group">
+              <label for="association-asthmaDiagnosis">asthmaDiagnosis</label>
+              <div class="d-flex mb-2">
+                <select id="association-asthmaDiagnosis" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the asthmaDiagnosis
+              </small>
+            </div>
+
+            <!-- ageClass -->
+            <div class="form-group">
+              <label for="association-ageClass">ageClass</label>
+              <div class="input-group mb-2">
+                <select id="association-ageClass" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="input-group-append">
+                  <div class="input-group-text">years</div>
+                </div>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the ageClass
+              </small>
+            </div>
+
+            <!-- antecedent -->
+            <div class="form-group">
+              <label for="association-antecedent">antecedent</label>
+              <div class="d-flex mb-2">
+                <select id="association-antecedent" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the antecedent
+              </small>
+            </div>
+
+            <!-- consequent -->
+            <div class="form-group">
+              <label for="association-consequent">consequent</label>
+              <div class="d-flex mb-2">
+                <select id="association-consequent" class="form-control" required>
+                  <option></option>
+                </select>
+                <div class="reset">✕</div>
+              </div>
+              <small class="form-text text-muted">
+                Please enter the consequent
+              </small>
+            </div>
+
+            <button type="submit" class="btn btn-primary" disabled>Add</button>
+            <input type="reset" class="btn btn-warning" value="Reset" disabled />
+          </form>
+          <div class="col-md-12 mt-4">
+            <div class="alert alert-success d-none" role="alert">
+              <table class="table table-striped table-responsive-xl">
+                <thead>
+                  <tr>
+                    <th>asthmaDiagnosis</th>
+                    <th>ageClass</th>
+                    <th>outcome</th>
+                    <th>comorbidities</th>
+                    <th>support</th>
+                    <th>confidence</th>
+                    <th>coverage</th>
+                    <th>lift</th>
+                    <th>count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <hr />
+              <p>
+                Disclaimer: please take into consideration that all limitations described in the paper apply while
+                interpreting these results.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decision Trees -->
+        <div class="tab-pane fade d-none" id="pills-decision-trees" role="tabpanel">
+
         </div>
       </div>
     </div>
