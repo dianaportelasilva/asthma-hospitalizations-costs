@@ -17,8 +17,10 @@ jobs:
         with:
           node-version: 16
 
-      - name: NPM Build
+      - name: NPM Install
         run: npm ci
+
+      - name: NPM Build
         run: npm run build
       
       - name: Git Commit
