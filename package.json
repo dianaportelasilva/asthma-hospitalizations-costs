@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html --out-dir docs --open",
     "console": "node src/console.js",
-    "build": "parcel build src/index.html --out-dir docs --public-url ./"
+    "build": "rm -rf docs/* && parcel build src/index.html --out-dir docs --public-url ./"
   },
   "dependencies": {
     "bootstrap": "4.6.1",
