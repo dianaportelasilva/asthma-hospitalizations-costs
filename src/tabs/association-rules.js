@@ -166,7 +166,7 @@ const initAssociationRules = async () => {
   });
 
   // reset selects on click
-  queryAll('select').forEach(e => e.onfocus = () => {
+  main.queryAll('select').forEach(e => e.onfocus = () => {
     e.value = '';
     e.blur();
     updateSelectOptions();
