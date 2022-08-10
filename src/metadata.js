@@ -12,7 +12,7 @@ module.exports = Object.freeze({
   outcome: {
     1: 'Cost',
     2: 'Length of stay',
-    3: 'In-hospital mortality*',
+    3: 'In-hospital mortality',
   },
   asthmaSecondDiagnosis: {
     1: 'Yes',
