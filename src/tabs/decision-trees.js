@@ -53,27 +53,29 @@ const getFilteredRows = selectedValues => {
 const calculate = () => {
   if (results.classList.contains('d-none')) return;
 
-  const data = getFilteredRows()[0];
+  const data = getFilteredRows();
 
-  // append new values
-  const tr = results.query('table tbody').insertRow();
-  let td;
+  data.forEach(elem => {
+    // append new values
+    const tr = results.query('table tbody').insertRow();
+    let td;
 
-  Object.values(input).forEach(entry => {
+    Object.values(input).forEach(entry => {
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(entry.selectedOptions[0].text));
+    });
+
+    elem.slice(3).forEach(entry => {
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(entry));
+    });
+
+    // delete button
     td = tr.insertCell();
-    td.appendChild(document.createTextNode(entry.selectedOptions[0].text));
+    td.classList.add('delete');
+    td.appendChild(document.createTextNode('✕'));
+    td.onclick = () => tr.remove();
   });
-
-  data.slice(3).forEach(entry => {
-    td = tr.insertCell();
-    td.appendChild(document.createTextNode(entry));
-  });
-
-  // delete button
-  td = tr.insertCell();
-  td.classList.add('delete');
-  td.appendChild(document.createTextNode('✕'));
-  td.onclick = () => tr.remove();
 };
 
 const updateSelectOptions = () => {
