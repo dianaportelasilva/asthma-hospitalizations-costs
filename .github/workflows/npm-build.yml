@@ -25,5 +25,5 @@ jobs:
       
       - name: Git Commit
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
-          with:
-            commit_message: Automated build
+        with:
+          commit_message: Automated build
