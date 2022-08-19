@@ -60,12 +60,7 @@ const calculate = () => {
     const tr = results.query('table tbody').insertRow();
     let td;
 
-    Object.values(input).forEach(entry => {
-      td = tr.insertCell();
-      td.appendChild(document.createTextNode(entry.selectedOptions[0].text));
-    });
-
-    elem.slice(3).forEach(entry => {
+    elem.slice(3, -1).forEach(entry => {
       td = tr.insertCell();
       td.appendChild(document.createTextNode(entry));
     });
@@ -76,6 +71,12 @@ const calculate = () => {
     td.appendChild(document.createTextNode('✕'));
     td.onclick = () => tr.remove();
   });
+
+  // show image
+  const imgID = data[0].slice(-1);
+  const img = results.querySelector('.img');
+  img.className = 'img';
+  img.classList.add(`img${imgID}`);
 };
 
 const updateSelectOptions = () => {
