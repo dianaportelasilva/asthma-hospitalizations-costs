@@ -4,7 +4,7 @@ import './style.scss';
 import { onDomReady } from 'cantil';
 import initRegressionModels from './tabs/regression-models';
 import initAssociationRules from './tabs/association-rules';
-// import initDecisionTrees from './tabs/decision-trees';
+import initDecisionTrees from './tabs/decision-trees';
 
 onDomReady().then(async () => {
   Promise.all([
@@ -15,7 +15,7 @@ onDomReady().then(async () => {
     initAssociationRules(),
 
     // Regression Tab
-    // initDecisionTrees(),
+    initDecisionTrees(),
   ])
     .then(() => {
       // Hide loading
